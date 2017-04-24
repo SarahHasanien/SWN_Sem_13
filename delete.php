@@ -7,5 +7,5 @@ if ($conn->connect_error)
 }
 $num = $_POST["ID"];
 $conn->query("delete from post where PID=".$num);
-header("Location:EmployeeHome.php");//doesn't work :/
+
 ?>

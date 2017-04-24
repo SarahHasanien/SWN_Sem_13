@@ -1,10 +1,7 @@
 <?php
-$conn=new mysqli('localhost','root','','sw');
-// Check connection
-if ($conn->connect_error) 
+require("Common.php");
+if(isset($_POST["login"]))
 {
-    die("Connection failed: " . $conn->connect_error);
-} 
 $em=$_POST["email"];
 $pw=$_POST["password"];
 $result1=$conn->query("SELECT MID,type from manager where email='".$em."' and password='".$pw."'");
@@ -12,17 +9,23 @@ $result2=$conn->query("SELECT EID from employee where email='".$em."' and passwo
 if($result1->num_rows==1)
 {
     while ($row=$result1->fetch_assoc())
-    {
-        if ($row['type']==1)
-            header("Location:CEOHome.php");
-        else if ($row["type"]==2)
-            header("Location:ManagerHome.php");
-
-    }
+   {
+            $_SESSION['user']=$row;
+            header("Location:Home.php");
+   }
 }
 else if ($result2->num_rows==1)
 {
-    header("Location:EmployeeHome.php");
+    while ($row=$result2->fetch_assoc())
+   {
+            $_SESSION['user2']=$row;
+            header("Location:Home.php");
+   }
+}
+else
+{
+    header("Location:VisitorHome.php");
+}
 }
 else
 {

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
-include 'Conn.php'?>
+require "Common.php";
+//include 'Conn.php'
+?>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -55,8 +57,10 @@ include 'Conn.php'?>
 </div>
 <div class="form-group">
 <input class="form-control" placeholder="Password" name="password" type="password" value="">
-</div>   		
-<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+</div>  
+<div class="rem"><input type="checkbox" name="remebre">&nbsp;Remeber Me</div><br>
+<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" name="login">
+
 </fieldset>
 </form>
 			    </div>
