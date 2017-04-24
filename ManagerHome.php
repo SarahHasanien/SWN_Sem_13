@@ -5,7 +5,7 @@ include 'Conn.php';
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title> CEO </title>
+        <title> Manager </title>
         <link rel="stylesheet" href="css/mngStyle.css">
          <link rel="icon" href="images/rsz_achive.png">
         <script src="javascript/main.js"></script>

@@ -1,0 +1,81 @@
+/*Start nav*/
+.navbar
+{
+    background:#f0f0f0!important;
+  display: block;
+}
+.navbar-brand {
+  //padding: 0px;
+}
+.navbar-brand>img {
+  height: 150%;
+  margin-top: -15%
+    
+}
+.nav >li>a
+{
+    color:#192b75!important;
+}
+.nav >li>a:hover
+{
+  border-bottom: 2px solid #192b75;
+}
+.navbar-text
+{
+    margin-left: -5%;
+    margin-top: 5%;
+    color:#192b75!important;
+    font-size: 250%;
+    font-weight: 300;
+}
+.dropdown-menu >li>a
+{
+    color:#192b75!important;
+}
+.dropdown-header
+{
+    color:#192b75!important;
+    font-weight:bold
+}
+.example3 .navbar-brand {
+  height: 82.5px;
+}
+.example3 .nav >li >a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 130%;
+}
+.example3 .nav >li >a:visited {
+  background-color: white;
+  border-bottom: 2px solid #192b75;
+}
+.example3 .navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+  font-size: 130%;
+}
+.container2 {
+  padding-right: 15px;
+  padding-left: 15px;
+   padding-top:-10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+
+.vertical-offset-100{
+    padding-top:100px;
+}
+.panel-default
+{
+    padding-top: -140px
+}
+/*End navbar*/
