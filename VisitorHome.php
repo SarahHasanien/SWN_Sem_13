@@ -35,7 +35,7 @@ require "Common.php";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <form class="sign-up">
             <p class="new"><!--New Employee?--></p>
-            <button type="button" class="btn btn-primary">Sign Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-registration-mark" aria-hidden="true"> </span></button>
+            <a href="form.php"><button type="button" class="btn btn-primary">Sign Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-registration-mark" aria-hidden="true"> </span></button></a>
         </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
