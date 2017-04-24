@@ -41,7 +41,9 @@ require("Common.php");
         $qry='SELECT * FROM employee WHERE ID ='.$_SESSION['user']['MID'];
         $result= $conn->query($qry);
     echo "hii".$result['firstname'];
-    echo '<!-- Main div -->
+    echo '
+
+<!-- Main div -->
 
 <div class ="main" >
 

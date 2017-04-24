@@ -9,7 +9,7 @@ $conn = new mysqli('localhost', 'root', 'sw');
 
 //Check Connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error)
+    die("Connection failed: " . $conn->connect_error );
 }
 
 $num = $_Post["ID"];
@@ -26,25 +26,26 @@ $elshehadat = $_Post["certificates"];
 
 if($num == NULL || $awelEsm == NULL || $a5erEsm == NULL || $elEmail == NULL || $elPwEladeema == NULL || $elPwElgedida == NULL || $ta2keedElPw == NULL || $elkesm == NULL || $elmadina == NULL || $elbalad == NULL  || $elshehadat == NULL)
 {
-    echo '<div class="alert alert-danger" role="alert">
+    echo " <div class= "alert alert-danger" role="alert">
     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
     <span class="sr-only">Error:</span> Some fields are still empty
-          </div>'
+          </div> ";
 }
 
 else if ($elPwEladeema != Select password FROM employee WHERE EID ='.$num.')
 {
-    echo '<div class="alert alert-danger" role="alert">
+    echo "<div class="alert alert-danger" role="alert">
     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
     <span class="sr-only">Error:</span> Wrong Password!!
-          </div>'
+          </div> ";
 }
+
 else if ($elPwElgedida != $ta2keedElPw)
 {
-    echo '<div class="alert alert-danger" role="alert">
+    echo "<div class="alert alert-danger" role="alert">
     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
     <span class="sr-only">Error:</span> Passwords mismatch!!
-          </div>'
+          </div>";
 }
 else
 {
