@@ -41,9 +41,6 @@
      <div class="col-md-8">
         <div class="card">
             <div class="content">
-                <!-- Foooooooooooooooooooooooooooooooooooooooooooooooooooooooooorrmmm -->
-
-
                 <?php
                 $qry = SELECT * FROM employee WHERE EID = '.$ID.';
                 $result= $conn->query($qry);

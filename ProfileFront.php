@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+<?php
+require("Common.php");
+?>
 <html>
-
 <!-- Head -->
 <head>
     <?php include "Conn.php"?>
     <!-- Latest compiled and minified CSS -->
-    <link rel ="stylesheet" href ="Achieve-front/CSS/profileStyle.css">
+    <link rel ="stylesheet" href ="CSS/profileStyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -35,20 +37,18 @@
         </ul>
     </div>
 </nav>
-
     <?php
-        SELECT * FROM employee WHERE ID = '.$ID.';
+        $qry='SELECT * FROM employee WHERE ID ='.$_SESSION['user']['MID'];
         $result= $conn->query($qry);
-
-        echo '
-            <!-- Main div -->
+    echo "hii".$result['firstname'];
+    echo '<!-- Main div -->
 
 <div class ="main" >
 
     <!-- Photo div -->
 
     <div id="userImage">
-        <img src ="Achieve-front/images/icon-user-default.png" alt ="User's image" id="myImage">
+        <img src ="Achieve-front/images/icon-user-default.png" alt ="Users image" id="myImage">
     </div>
 
     <!-- User\'s info -->
@@ -96,9 +96,7 @@
 
     <!-- Graph div -->
     <canvas width="848" height ="300" style ="position: absolute"; left: 0px; top: 0px;" ></canvas>
-</div>
-
-        '
+</div>'
     ?>
 
 
