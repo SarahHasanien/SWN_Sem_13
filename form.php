@@ -25,11 +25,9 @@ if (mysqli_connect_errno()) {
          $cert=$_POST['cert'];
        
          $error = false;
-      
-          //  username validation
 if(empty($username))
 {
-       $error = true;
+    $error = true;
    $usernameError = "Please enter your User name.";
 }
 else{ 
@@ -161,7 +159,7 @@ else if($password != $password2)
 		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-		<title>Admin</title>
+		<title>Sign up</title>
 	</head>
 	<body>
 		<div class="container">

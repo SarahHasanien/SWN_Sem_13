@@ -67,11 +67,11 @@ li a:hover {
 
     display: inline;
 }
-
 .userInfo
 {
     color: #337ab7;
     display: inline;
+    width:30%;
     position: absolute;
     top: 60px;
     left: 350px;

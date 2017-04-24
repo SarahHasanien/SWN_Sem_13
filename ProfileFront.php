@@ -5,9 +5,8 @@ require("Common.php");
 <html>
 <!-- Head -->
 <head>
-    <?php include "Conn.php"?>
     <!-- Latest compiled and minified CSS -->
-    <link rel ="stylesheet" href ="CSS/profileStyle.css">
+    <link rel ="stylesheet" href ="CSS/profStyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -38,9 +37,14 @@ require("Common.php");
     </div>
 </nav>
     <?php
-        $qry='SELECT * FROM employee WHERE ID ='.$_SESSION['user']['MID'];
-        $result= $conn->query($qry);
-    echo "hii".$result['firstname'];
+    if (!empty($_SESSION['user2']))
+    {
+        $qry='SELECT * FROM employee WHERE EID ='.$_SESSION['user2']['EID'];
+        $row= $conn->query($qry);
+    if ($row->num_rows>0)
+        {
+            $result=$row->fetch_assoc();
+        }
     echo '<!-- Main div -->
 
 <div class ="main" >
@@ -48,7 +52,7 @@ require("Common.php");
     <!-- Photo div -->
 
     <div id="userImage">
-        <img src ="Achieve-front/images/icon-user-default.png" alt ="Users image" id="myImage">
+        <img src ="images/icon-user-default.png" alt ="Users image" id="myImage">
     </div>
 
     <!-- User\'s info -->
@@ -56,28 +60,28 @@ require("Common.php");
 
         <div>
             <span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
-            <p> Name:'. $result['firstname'].'  &nbsp '.  $result['lastname'].'; </p>
+            <p> Name:&nbsp;&nbsp;'.$result['firstname'].'&nbsp;'.  $result['lastname'].'</p>
         </div>
         <div>
             <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-            <p> Country: '.  $result['country'].' &nbsp; </p>
+            <p> Country:&nbsp;&nbsp;'.  $result['country'].'&nbsp;</p>
         </div>
         <div>
             <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-            <p> Certificate: '.  $result['certificate'].'&nbsp; </p>
+            <p> Certificate:&nbsp;&nbsp;'.  $result['certificate'].'&nbsp; </p>
         </div>
         <div>
             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-            <p> Joining Date: '.  $result['joinDate'].' &nbsp; </p>
+            <p> Joining Date:&nbsp;&nbsp;'.$result['joinDate'].' &nbsp; </p>
         </div>
         <div>
             <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-            <p> Department: '.  $result['department'].' &nbsp; </p>
+            <p> Department:&nbsp;&nbsp;'.$result['department'].'&nbsp; </p>
         </div>
 
         <div>
             <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-            <p> Title: '.  $result['Ejobtitle'].' &nbsp; </p>
+            <p> Title:&nbsp;&nbsp;'.  $result['Ejobtitle'].' &nbsp; </p>
             <div class ="Rating">
                 <span class="glyphicon glyphicon-star yellowStar" aria-hidden="true"></span>
                 <p> Rating: &nbsp; </p>
@@ -96,10 +100,74 @@ require("Common.php");
 
     <!-- Graph div -->
     <canvas width="848" height ="300" style ="position: absolute"; left: 0px; top: 0px;" ></canvas>
-</div>'
+</div>';
+    }
+    else if (!empty($_SESSION['user']))
+    {
+        $qry='SELECT * FROM manager WHERE MID ='.$_SESSION['user']['MID'];
+        $row= $conn->query($qry);
+    if ($row->num_rows>0)
+        {
+            $result=$row->fetch_assoc();
+        }
+    echo '<!-- Main div -->
+
+<div class ="main" >
+
+    <!-- Photo div -->
+
+    <div id="userImage">
+        <img src ="images/icon-user-default.png" alt ="Users image" id="myImage">
+    </div>
+
+    <!-- User\'s info -->
+    <div class = "userInfo">
+
+        <div>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
+            <p> Name:&nbsp;&nbsp;'.$result['firstname'].'&nbsp;'.  $result['lastname'].'</p>
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+            <p> Country:&nbsp;&nbsp;'.  $result['country'].'&nbsp;</p>
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+            <p> Certificate:&nbsp;&nbsp;'.  $result['certificate'].'&nbsp; </p>
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            <p> Joining Date:&nbsp;&nbsp;'.$result['joinDate'].' &nbsp; </p>
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+            <p> Department:&nbsp;&nbsp;'.$result['department'].'&nbsp; </p>
+        </div>
+
+        <div>
+            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+            <p> Job Title:&nbsp;&nbsp;'.$result['Mjobtitle'].' &nbsp; </p>
+            <div class ="Rating">
+                <span class="glyphicon glyphicon-star yellowStar" aria-hidden="true"></span>
+                <p> Rating: &nbsp; </p>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <!-- End of container class>
+
+    <!-- Graph div -->
+    <canvas width="848" height ="300" style ="position: absolute"; left: 0px; top: 0px;" ></canvas>
+</div>';
+    }
     ?>
-
-
+ </div>
 </body>
-
 </html>
