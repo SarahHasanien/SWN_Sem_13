@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require("Common.php");
 if(isset($_POST["update"]))
 {
@@ -12,9 +13,44 @@ $elkesm = $_POST["department"];
 $elmadina = $_POST["city"];
 $elbalad = $_POST["country"];
 $elshehadat = $_POST["certificates"];
+=======
+/**
+ * Created by PhpStorm.
+ * User: darwish
+ * Date: 23/04/17
+ * Time: 13:41
+ */
+$conn = new mysqli('localhost', 'root', 'sw');
+
+//Check Connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error );
+}
+
+$num = $_Post["ID"];
+$awelEsm = $_Post["firstName"];
+$a5erEsm = $_Post["lastName"];
+$elEmail = $_Post["email"];
+$elPwEladeema = $_Post["oldPassword"];
+$elPwElgedida = $_Post["newPassword"];
+$ta2keedElPw = $_Post["confirmPassword"];
+$elkesm = $_Post["department"];
+$elmadina = $_Post["city"];
+$elbalad = $_Post["country"];
+$elshehadat = $_Post["certificates"];
+
+if($num == NULL || $awelEsm == NULL || $a5erEsm == NULL || $elEmail == NULL || $elPwEladeema == NULL || $elPwElgedida == NULL || $ta2keedElPw == NULL || $elkesm == NULL || $elmadina == NULL || $elbalad == NULL  || $elshehadat == NULL)
+{
+    echo " <div class= "alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span> Some fields are still empty
+          </div> ";
+}
+>>>>>>> origin/master
 
 if (!empty($_SESSION['user2']))
 {
+<<<<<<< HEAD
     //so the logged in user is employee
     $result=$conn->query('Select password FROM employee WHERE EID ='.$_SESSION['user2']['EID']);
     $row=$result->fetch_assoc();
@@ -88,6 +124,20 @@ if (!empty($_SESSION['user2']))
         else 
             echo "Data updates successfully =)";
     }
+=======
+    echo "<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span> Wrong Password!!
+          </div> ";
+}
+
+else if ($elPwElgedida != $ta2keedElPw)
+{
+    echo "<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span> Passwords mismatch!!
+          </div>";
+>>>>>>> origin/master
 }
 }
 //Uncomment me to be redirected to the homepage
