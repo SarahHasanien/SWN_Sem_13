@@ -6,7 +6,7 @@ require("Common.php");
 <!-- Head -->
 <head>
     <!-- Latest compiled and minified CSS -->
-    <link rel ="stylesheet" href ="CSS/profStyle.css">
+    <link rel ="stylesheet" href ="CSS/profileStyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -36,9 +36,18 @@ require("Common.php");
         </ul>
     </div>
 </nav>
+
     <?php
     if (!empty($_SESSION['user2']))
     {
+            //get dept name
+        $q='SELECT Name FROM department WHERE DNO='.$_SESSION['user2']['DNO'];
+            $res = $conn->query($q);
+            if ($res->num_rows>0)
+                {
+                    $dept=$res->fetch_assoc();
+                }
+        
         $qry='SELECT * FROM employee WHERE EID ='.$_SESSION['user2']['EID'];
         $row= $conn->query($qry);
     if ($row->num_rows>0)
@@ -76,9 +85,8 @@ require("Common.php");
         </div>
         <div>
             <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-            <p> Department:&nbsp;&nbsp;'.$result['department'].'&nbsp; </p>
+            <p> Department:&nbsp;&nbsp;'.$dept["Name"].'&nbsp; </p>
         </div>
-
         <div>
             <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
             <p> Title:&nbsp;&nbsp;'.  $result['Ejobtitle'].' &nbsp; </p>
@@ -104,6 +112,13 @@ require("Common.php");
     }
     else if (!empty($_SESSION['user']))
     {
+            //get dept name
+        $q='SELECT Name FROM department WHERE DNO='.$_SESSION['user']['DNO'];
+            $res = $conn->query($q);
+            if ($res->num_rows>0)
+                {
+                    $dept=$res->fetch_assoc();
+                }
         $qry='SELECT * FROM manager WHERE MID ='.$_SESSION['user']['MID'];
         $row= $conn->query($qry);
     if ($row->num_rows>0)
@@ -141,7 +156,7 @@ require("Common.php");
         </div>
         <div>
             <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-            <p> Department:&nbsp;&nbsp;'.$result['department'].'&nbsp; </p>
+            <p> Department:&nbsp;&nbsp;'.$dept["Name"].'&nbsp; </p>
         </div>
 
         <div>
