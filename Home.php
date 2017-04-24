@@ -1,5 +1,4 @@
 <?php
-//include 'Conn.php';
 require "Common.php";
 ?>
 <!DOCTYPE html>
@@ -7,7 +6,7 @@ require "Common.php";
     <head>
         <meta charset="UTF-8">
         <title> Home Page </title>
-        <link rel="stylesheet" href="css/HomeStyle.css">
+        <link rel="stylesheet" href="css/Home.css">
         <link rel="icon" href="images/rsz_achive.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
          <link rel="icon" href="images/rsz_achive.png">
@@ -73,38 +72,20 @@ require "Common.php";
 <div class="PostsArea">
        <?php
     if (empty($_SESSION['user2']))
-    echo'<form action="post.php" method="post" class="form-group">
+    echo'<form action="addpost.php" method="post" class="form-group">
   <!--<label for="comment">Comment:</label>-->
   <textarea class="form-control" rows="4" name="newwpost" id="newpost" placeholder="Post a new announcement!"></textarea>
            <button type="submit" class="newpostbtn btn btn-primary ">Post</button>
       </form>';
        ?>
-    <div>
         <br><br>
     <?php
-        $result=$conn->query("select Text, PID, MID from post order by PID DESC");
-        if ($result->num_rows>0)
-        {
-            while ($row=$result->fetch_assoc())
-            {
-                if (!empty($_SESSION['user']))
-                {
-                     if($_SESSION['user']['type']==1)
-                    echo'<a onclick="loadDoc('.$row['PID'].')" class=" exit exit'.$row['PID'].'"><span class=" glyphicon glyphicon-remove" aria-hidden="true"></span></a>';
-                    else if($row['MID']==$_SESSION['user']['MID'])
-                    {
-                        echo'<a onclick="loadDoc('.$row['PID'].')" class=" exit exit'.$row['PID'].'"><span class=" glyphicon glyphicon-remove" aria-hidden="true"></span></a>';
-                    }
-                }
-                echo '<div class="onepost">&nbsp; &nbsp;'.$row['Text'].'</div><br>';
-            }
-        }
+        require("GetAllPosts.php");
     ?>
-</div>
         </div> 
 <!--End posts area-->
 <!--Navbar starts here-->
- <div class="firstsec">
+<div class="firstsec">
 <i class="fa fa-google-plus-square" style="font-size:25px"></i>
 <i class="fa fa-facebook-square" style="font-size:25px"></i>
 <i class="fa fa-twitter-square" style="font-size:25px"></i>     
@@ -113,7 +94,5 @@ require "Common.php";
 </div>
 <!--Navbar ends here-->    
     </body>
-    <?php
-    session_destroy()
-    ?>
+    
 </html>

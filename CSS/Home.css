@@ -77,7 +77,7 @@ body
 {
     width:50%;
     margin:auto;
-    height:inherit;
+    height:100%;
     min-height: 1000px;
     background-color: rgba(255,255,255,0.6);
     position: relative;
@@ -108,8 +108,18 @@ body
 .exit
 {
     position: relative;
-    left: 92%;
-    top:20px
+    left: 93%;
+    top:43px;
+}
+.postowner
+{
+    font-size: 10px;
+    font-weight: bold;
+    position: relative;
+    left: 6%;
+    top:-4px;
+    color: #192b75;
+    
 }
 /*End posts*/
 .head
