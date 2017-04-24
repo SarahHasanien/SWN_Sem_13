@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<?php
-require("Common.php");
-?>
 <html>
+
 <!-- Head -->
 <head>
     <?php include "Conn.php"?>
     <!-- Latest compiled and minified CSS -->
-    <link rel ="stylesheet" href ="CSS/profileStyle.css">
+    <link rel ="stylesheet" href ="Achieve-front/CSS/profileStyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -26,31 +24,31 @@ require("Common.php");
 <body>
 
 <div class = "container">
-<!-- Static small Navigation Bar -->
+    <!-- Static small Navigation Bar -->
 
-<nav class="navbar navbar-static-top" role="navigation">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li class="active selected"><a href="ProfileFront.php"> Profile </a></li>
-            <li> <a href="EditProfileFront.php">Edit Profile </a></li>
-            <!-- <li><a href="Employee's Achievements"> My Achievements</a> </li> -->
-        </ul>
-    </div>
-</nav>
-    <?php
-        $qry='SELECT * FROM employee WHERE ID ='.$_SESSION['user']['MID'];
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active selected"><a href="ProfileFront.php"> Profile </a></li>
+                <li> <a href="EditProfileFront.php">Edit Profile </a></li>
+                <!-- <li><a href="Employee's Achievements"> My Achievements</a> </li> -->
+            </ul>
+        </div>
+    </nav>
+
+<?php
+SELECT * FROM employee WHERE ID = '.$ID.';
         $result= $conn->query($qry);
-    echo "hii".$result['firstname'];
-    echo '
 
-<!-- Main div -->
+        echo '
+            <!-- Main div -->
 
 <div class ="main" >
 
     <!-- Photo div -->
 
     <div id="userImage">
-        <img src ="Achieve-front/images/icon-user-default.png" alt ="Users image" id="myImage">
+        <img src ="Achieve-front/images/icon-user-default.png" alt ="User's image" id="myImage">
     </div>
 
     <!-- User\'s info -->
@@ -98,7 +96,9 @@ require("Common.php");
 
     <!-- Graph div -->
     <canvas width="848" height ="300" style ="position: absolute"; left: 0px; top: 0px;" ></canvas>
-</div>'
+</div>
+
+'
     ?>
 
 
