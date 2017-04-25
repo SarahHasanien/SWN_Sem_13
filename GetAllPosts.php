@@ -1,5 +1,6 @@
 <?php
-$result=$conn->query("select p.Text, p.PID, p.MID,m.MID,m.firstname,m.lastname from post p,manager m where p.MID=m.MID order by PID DESC");
+$db=Database::Connect();
+$result=$db->conn->query("select p.Text, p.PID, p.MID,m.MID,m.firstname,m.lastname from post p,manager m where p.MID=m.MID order by PID DESC");
 if ($result->num_rows>0)
 {
     while ($row=$result->fetch_assoc())

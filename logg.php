@@ -2,10 +2,12 @@
 require("Common.php");
 if(isset($_POST["login"]))
 {
+    
 $em=$_POST["email"];
 $pw=$_POST["password"];
-$result1=$conn->query("SELECT MID,type,DNO from manager where email='".$em."' and password='".$pw."'");
-$result2=$conn->query("SELECT DNO,EID from employee where email='".$em."' and password='".$pw."'");
+$db=Database::Connect();
+$result1=$db->conn->query("SELECT MID,type,DNO from manager where email='".$em."' and password='".$pw."'");
+$result2=$db->conn->query("SELECT DNO,EID from employee where email='".$em."' and password='".$pw."'");
 if($result1->num_rows==1)
 {
     while ($row=$result1->fetch_assoc())

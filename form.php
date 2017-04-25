@@ -1,6 +1,5 @@
 <?php
-    $link="Please fill this form";
-    session_start();
+$link="Please fill this form";
 $db = mysqli_connect("localhost","root","","sw");
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
@@ -40,10 +39,10 @@ else{
     $usernameError = "Provided Username is already in use.";
     }
     
-     $sql= "SELECT*  FROM manager Where username='$username'";
+    $sql= "SELECT*  FROM manager Where username='$username'";
     $result = mysqli_query($db, $sql);
   
-   if(  mysqli_num_rows($result)){
+   if(mysqli_num_rows($result)){
     $error = true;
     $usernameError = "Provided Username is already in use.";
     }
