@@ -1,10 +1,13 @@
 <?php
 $link="Please fill this form";
-$db = mysqli_connect("localhost","root","","sw");
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
+
+require ("Common.php");
+$db=Database::Connect();  
+if ($db->conn->connect_error) 
+{
+    die("Connection failed: " . $conn->connect_error);
+} 
+
         $usernameError="";
         $nameError="";
         $passError="";
@@ -32,15 +35,15 @@ if(empty($username))
 else{ 
     $query=false;
     $sql= "SELECT*  FROM employee Where username='$username'";
-    $result = mysqli_query($db, $sql);
+    $result = mysqli_query($db->conn, $sql);
   
-   if(  mysqli_num_rows($result)){
+   if(mysqli_num_rows($result)){
     $error = true;
     $usernameError = "Provided Username is already in use.";
     }
     
     $sql= "SELECT*  FROM manager Where username='$username'";
-    $result = mysqli_query($db, $sql);
+    $result = mysqli_query($db->conn,$sql);
   
    if(mysqli_num_rows($result)){
     $error = true;
@@ -79,14 +82,14 @@ else if($password != $password2)
     else
     { $query=false;
     $sql = "SELECT * FROM employee WHERE Email='$email'";
-   $result = mysqli_query($db, $sql);     
+   $result = mysqli_query($db->conn, $sql);     
    if( mysqli_num_rows($result) > 0 )
    {
     $error = true ;
     $emailError = "Provided Email is already in use.";
    }
      $sql = "SELECT * FROM manager WHERE Email='$email'";
-   $result = mysqli_query($db, $sql);     
+   $result = mysqli_query($db->conn, $sql);     
    if( mysqli_num_rows($result) > 0 ){
     $error = true;
     $emailError = "Provided Email is already in use.";
@@ -101,10 +104,10 @@ else if($password != $password2)
     else {
       $sql = "SELECT * FROM department WHERE Name='$dep'";
         
-   $result = mysqli_query($db, $sql);     
+   $result = mysqli_query($db->conn, $sql);     
    if(mysqli_num_rows($result) > 0 ){
         $sql = "SELECT Dno FROM department WHERE Name='$dep'";
-          $result = mysqli_query($db, $sql); 
+          $result = mysqli_query($db->conn, $sql); 
        if($row = mysqli_fetch_assoc($result))
        $dep=$row['Dno'];
        
@@ -129,7 +132,7 @@ else if($password != $password2)
         {
             $sql = "INSERT INTO employee ( name,Email,country,certificate,Password, username,Dno )
             Values ('$name','$email','$country','$cert','$password','$username','$dep')";
-         mysqli_query($db,$sql);
+         mysqli_query($db->conn,$sql);
          $link ="your registration is successful !!";    
         }
     }

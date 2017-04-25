@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 require "Common.php";
-//include 'Conn.php'
 ?>
 <html lang="en">
     <head>
