@@ -8,7 +8,7 @@ require "Common.php";
         <meta charset="UTF-8">
         <title> VISITOR </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/Visitor.css">
+        <link rel="stylesheet" href="CSS/Visitor.css">
          <link rel="icon" href="images/rsz_achive.png">
                         <script src="javascript/file.js"></script>
         <script src="javascript/jquery-1.11.3.min.js"></script>
