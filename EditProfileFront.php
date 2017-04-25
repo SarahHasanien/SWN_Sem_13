@@ -36,6 +36,7 @@
         </div>
     </nav>
     <div class ="main">
+<<<<<<< HEAD
         <div class="col-md-8">
             <div class="card">
                 <div class="content">
@@ -55,6 +56,27 @@
                             $result2=$row2->fetch_assoc();
                         }
                         echo '<form accept-charset="UTF-8" role="form" method="post"action="EditProfileBack.php" method="POST">
+=======
+     <div class="col-md-8">
+        <div class="card">
+            <div class="content">
+                <?php
+                if (!empty($_SESSION['user2']))//then employee
+                {
+                    $qry = 'SELECT * FROM employee WHERE EID='.$_SESSION['user2']['EID'];
+                $row= $conn->query($qry);
+                if ($row->num_rows>0)
+                    {
+                        $result=$row->fetch_assoc();
+                    }
+                $qry2='SELECT Name FROM department WHERE DNO='.$_SESSION['user2']['DNO'];
+                $row2 = $conn->query($qry2);
+                if ($row2->num_rows>0)
+                    {
+                        $result2=$row2->fetch_assoc();
+                    }
+                echo '<form accept-charset="UTF-8" role="form" method="post"action="EditProfileBack.php" method="POST">
+>>>>>>> 122acdcaa5acc8b760ee80ab1a4bfb3c28c1ca55
                     <!-- Photo div -->
 
                     <div id="userImage">
@@ -139,6 +161,7 @@
                     <div class="clearfix"></div>
                     </div>
                     </form>';
+<<<<<<< HEAD
                     }
                     else//then manager or ceo
                     {
@@ -155,6 +178,24 @@
                             $result2=$row2->fetch_assoc();
                         }
                         echo '<form accept-charset="UTF-8" role="form" method="post"action="EditProfileBack.php" method="POST">
+=======
+                }
+                else//then manager or ceo
+                {
+                    $qry = 'SELECT * FROM manager WHERE MID='.$_SESSION['user']['MID'];
+                $row= $conn->query($qry);
+                if ($row->num_rows>0)
+                    {
+                        $result=$row->fetch_assoc();
+                    }
+                $qry2='SELECT Name FROM department WHERE DNO='.$_SESSION['user']['DNO'];
+                $row2 = $conn->query($qry2);
+                if ($row2->num_rows>0)
+                    {
+                        $result2=$row2->fetch_assoc();
+                    }
+                echo '<form accept-charset="UTF-8" role="form" method="post"action="EditProfileBack.php" method="POST">
+>>>>>>> 122acdcaa5acc8b760ee80ab1a4bfb3c28c1ca55
                     <!-- Photo div -->
 
                     <div id="userImage">
@@ -239,8 +280,13 @@
                     <div class="clearfix"></div>
                     </div>
                     </form>';
+<<<<<<< HEAD
                     }
                     ?>
+=======
+                }
+                ?>
+>>>>>>> 122acdcaa5acc8b760ee80ab1a4bfb3c28c1ca55
                 </div>
             </div>
         </div>
