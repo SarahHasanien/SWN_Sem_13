@@ -94,7 +94,7 @@
 		$result=$con->query($q);
 		while($row = $result->fetch_assoc())
 		{
-			$name=$row["name"];
+			$name=$row["firstname"];
 			$Dno=$row["DNO"];
 			$EID=$row["EID"];
 			$email=$row["email"];
