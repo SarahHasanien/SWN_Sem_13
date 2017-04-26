@@ -26,7 +26,7 @@ else if ($result2->num_rows==1)
 }
 else
 {
-    header("Location:VisitorHome.php");
+    die(header("location:VisitorHome.php?loginFailed=true&reason=password"));
 }
 }
 else
