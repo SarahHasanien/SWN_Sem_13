@@ -3,7 +3,7 @@ require "Common.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="UTF-8">
         <title> Home Page </title>
         <link rel="stylesheet" href="css/Home.css">
@@ -55,7 +55,7 @@ require "Common.php";
                         }
                 }
             ?>
-          <li><a href="#">Export achievements</a></li>
+          <li><a href="ExportAch.php">Export achievements</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
