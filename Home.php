@@ -5,7 +5,7 @@ require "Common.php";
 <html lang="en">
 <head>
         <meta charset="UTF-8">
-        <title> Home Page </title>
+        <title> Home</title>
         <link rel="stylesheet" href="css/Home.css">
         <link rel="icon" href="images/rsz_achive.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
