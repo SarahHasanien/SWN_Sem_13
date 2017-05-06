@@ -40,8 +40,12 @@ require "Common.php";
       </div>
       <div id="navbar3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="ProfileFront.php">My Profile</a></li>
+          <li ><a href="Home.php">Home</a></li>
+<?php if(! empty($_SESSION['user2'])){  ?>
+         <li ><a href="AddAchievement.php">Add Achievement</a></li>
+            <?php } ?>     
+            <li><a href="ProfileFront.php">My Profile</a></li>
+              <li ><a href="viewAchievement.php">View Achievement</a></li>
             <?php
                 if (empty($_SESSION['user2']))
                 {
@@ -59,6 +63,15 @@ require "Common.php";
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+                <?php if(! empty($_SESSION['user2'])){  ?>
+           <li><a href="MyAchievement.php">My Achievement</a></li>
+                            <?php } ?> 
+                
+                 <?php if(! empty($_SESSION['user'])){ 
+                
+               if($_SESSION['user']['type'] == 2){  ?>
+           <li><a href="department.php">Department Achievement</a></li>
+                            <?php } }?> 
               <li><a href="#">Employees</a></li>
               <li><a href="#">Departments</a></li>
               <li><a href="logout.php">Log out</a></li>
