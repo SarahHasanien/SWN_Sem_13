@@ -7,9 +7,10 @@ $db=Database::Connect();
 <!-- Head -->
 <head>
     <!-- Latest compiled and minified CSS -->
-    <link rel ="stylesheet" href ="CSS/ProfileStyle.css">
+    <link rel ="stylesheet" href ="CSS/ProfStyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <!--chart include-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
@@ -173,5 +174,27 @@ $db=Database::Connect();
     }
     ?>
  </div>
+    <?php
+        require("GetAllYearsCharts.php");
+    ?>
+    <!--charts start here
+    <div class="chartContainer">
+    <canvas id="myChart">My chart</canvas>
+    </div>
+        
+    <script>    
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July','Aug','Sep','Oct','Nov','Dec'],
+        datasets: [{
+          label: 'Rating',
+          data: [12, 19, 3, 17, 6, 3, 7,10,2,90,8,46],
+          backgroundColor: "#36A2EB"
+        }]
+      }
+    });    
+    </script>-->
 </body>
 </html>

@@ -5,12 +5,13 @@ require "Common.php";
 <html lang="en">
 <head>
         <meta charset="UTF-8">
-        <title> Export Achievements</title>
-        <link rel="stylesheet" href="css/exportStyle.css">
+        <title> Export Employees Achievements</title>
+        <link rel="stylesheet" href="css/DeptsAchStyle.css">
         <link rel="icon" href="images/rsz_achive.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-         <link rel="icon" href="images/rsz_achive.png">
+        <link rel="icon" href="images/rsz_achive.png">
         <script src="javascript/main.js"></script>
+        <script src="javascript/myfile.js"></script>
         <script src="javascript/jquery-1.11.3.min.js"></script>
         <script src="javascript/plugins.js"></script>
         <script src="javascript/file.js"></script>
@@ -87,24 +88,13 @@ require "Common.php";
     <!--/.container-fluid -->
   </nav>
 </div>
-<!--Achievments area starts here-->
-        <!-- Single button -->
-<!-- Split button -->
-<!-- Single button -->
-<form method="post" action="Excel.php">
-      <button name="export" type="submit" class="btn btn-lg btn-success">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Export all company achievements in excel sheet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </button>
-</form>
-        
-<a href ="DeptsAch.php" class="btn btn-lg btn-success">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose a department to download its achievements sheet &nbsp;&nbsp;
- </a><br>  
- <a href ="EmpAch.php" class="btn btn-lg btn-success">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose an employee to download its achievements sheet&nbsp;&nbsp;&nbsp;&nbsp;
-</a>
-        
-<!--Achievments area ends here--> 
+<!--Start posts area-->
+<div class="PostsArea">
+    <?php
+        require("GetAllEmps.php");
+    ?>
+        </div> 
+<!--End posts area-->
 <!--Navbar starts here-->
 <div class="firstsec">
 <i class="fa fa-google-plus-square" style="font-size:25px"></i>

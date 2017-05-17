@@ -72,8 +72,8 @@ require "Common.php";
                if($_SESSION['user']['type'] == 2){  ?>
            <li><a href="department.php">Department Achievement</a></li>
                             <?php } }?> 
-              <li><a href="#">Employees</a></li>
-              <li><a href="#">Departments</a></li>
+              <li><a href="EmpAch.php">Employees</a></li>
+              <li><a href="DeptsAch.php">Departments</a></li>
               <li><a href="logout.php">Log out</a></li>
               <!--<li class="divider"></li>-->
               <li class="dropdown-header"></li>
