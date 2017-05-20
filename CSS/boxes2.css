@@ -1,0 +1,89 @@
+body {
+  overflow-x:hidden;
+    background-image: url("../images/Minimalistic_Picture_Laptop_Coffee_wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.wrap{
+  margin-left: 7.5%;
+}
+.box{
+  width:45%;
+  height:250px;
+  float:left;
+ /* background-color:white; */
+  margin:5px 5px;
+  border-radius:5px;
+}
+.box h3{
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight:normal;
+  text-align:center;
+  padding-top:60px;
+  color:#fff;
+}
+.box6{
+  background-color: #9EB3EB;
+}
+/*   shadows  */
+.shadow9{
+  position:relative;
+}
+ .shadow9{
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+}
+/*****************************************************************dashed border
+****************************************************************/
+.shadow9 h3{
+  width:87%;
+  height:100px;
+  margin-left:6%;
+  border:2px dashed #F7EEEE;
+  border-radius:5px;
+}
+
+.shadow9{
+ -webkit-box-shadow: -5px -5px 42px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: -5px -5px 42px -5px rgba(0,0,0,0.75);
+box-shadow: -5px -5px 42px -5px rgba(0,0,0,0.75);
+}
+
+/* image */
+.box img{
+  position: relative;
+  left:2px;
+  height: 160px;
+  width: 160px;
+  top:4%;
+  left:4%;
+  z-index: 0;
+}
+/* text */
+.box p{
+  position: relative;
+  left:7.5%;
+  top:10%;
+
+  padding-top: 5px;
+  padding-bottom: 2px;
+  padding-right: 70px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+.btn1{
+    min-width: 150px;
+}
+.btn2{
+  min-width: 550px;
+}
+.btn3{
+  min-width: 270px;
+}
