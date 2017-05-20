@@ -45,9 +45,11 @@ require("Common.php");
         {
             $result=$row->fetch_assoc();
         }
-        echo '<!-- Main div -->
+        echo '
 
-<div class ="main" >
+        <!-- Main div -->
+
+<div class = "main" >
 
     <!-- Photo div -->
 
@@ -55,7 +57,7 @@ require("Common.php");
         <img src ="images/icon-user-default.png" alt ="Users image" id="myImage">
     </div>
 
-    <!-- User\'s info -->
+    <!-- Users info -->
     <div class = "userInfo">
 
         <div>
@@ -110,17 +112,16 @@ require("Common.php");
         {
             $result=$row->fetch_assoc();
         }
-        echo '<!-- Main div -->
+        echo '
 
 <div class ="main" >
 
-    <!-- Photo div -->
 
     <div id="userImage">
         <img src ="images/icon-user-default.png" alt ="Users image" id="myImage">
     </div>
 
-    <!-- User\'s info -->
+    <!-- Users info -->
     <div class = "userInfo">
 
         <div>
@@ -165,8 +166,9 @@ require("Common.php");
 
     <!-- Graph div -->
     <canvas width="848" height ="300" style ="position: absolute"; left: 0px; top: 0px;" ></canvas>
-</div>';
+</div> ' ;
     }
+
     ?>
 </div>
 </body>
