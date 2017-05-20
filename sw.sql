@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2017 at 10:00 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Apr 20, 2017 at 10:16 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,43 +28,42 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `achievement` (
   `AchID` int(10) NOT NULL,
-  `type` text NOT NULL,
+  `type` varchar(10) NOT NULL,
   `Month` varchar(10) NOT NULL,
-  `pillar` text NOT NULL,
-  `BU` text NOT NULL,
-  `title` text NOT NULL,
-  `category` text NOT NULL,
-  `Currency` text NOT NULL,
-  `description` text NOT NULL,
-  `EID` int(10) NOT NULL,
-  `client` text NOT NULL,
-  `country` text NOT NULL,
-  `industry` text NOT NULL,
-  `CIH` text NOT NULL,
-  `Referencelink` text NOT NULL,
-  `year` int(10) NOT NULL,
-  `rating` int(11) DEFAULT NULL
+  `pillar` varchar(10) NOT NULL,
+  `BU` varchar(10) NOT NULL,
+  `title` varchar(10) NOT NULL,
+  `category` varchar(10) NOT NULL,
+  `Currency` varchar(10) NOT NULL,
+  `description` int(11) NOT NULL,
+  `EID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `achievement`
+-- Table structure for table `client`
 --
 
-INSERT INTO `achievement` (`AchID`, `type`, `Month`, `pillar`, `BU`, `title`, `category`, `Currency`, `description`, `EID`, `client`, `country`, `industry`, `CIH`, `Referencelink`, `year`, `rating`) VALUES
-(14, 'hjkhkjh', 'May', 'hjkhjk', 'hkjh', 'khkh', 'hjkhkjh', 'kjhjkh', 'hkjhjkh', 2, 'hjhkjh', 'hkjhkjh', 'kjhjkh', 'hjkh', 'kjhkjh', 2017, 90),
-(15, 'sdadsa', 'May', 'sdsfsaf', 'sfasd', 'hdsajdha', 'sdasd', 'sadfdsa', 'jslkcjzxklcjszlk', 4, 'sdsdsdas', 'sfds', 'fgdgf', 'dfsdf', 'dsfdsdfs', 2017, NULL),
-(17, 'ghg', 'January', 'ghg', 'ghg', 'gj', 'gh', 'ghg', 'ghg', 7, 'gh', 'ghg', 'ghg', 'ghg', 'ghg', 2016, 19),
-(18, 'Abstract', 'June', 'none', 'Cloud', 'Prepare lab', 'Events', 'none', 'dsfsf', 7, 'Egypt', 'Egypt', 'Education', 'CIH', 'hh', 2017, 80),
-(39, 'Abstract Submission', 'April', 'none', 'Cloud', 'Prepare lab for Interconnect 2017', 'Events/Conferences', 'none', 'ARC820170006 - A METHOD OF ACCURATE CHINESE SOUNDEX BASED ON FINE-GRAINED MAPPING - [MIN LI*, Sara Noeman, Yunyao Li, Marina Danilevsky]\r\n', 7, 'Egypt', 'Egypt', 'Education', 'CIH', 'the status is not clear yet', 2017, 45),
-(40, 'Abstract Submission', 'May', 'none', 'Cloud', 'Prepare lab for Interconnect 2017', 'Events/Conferences', 'none', 'ARC820170006 - A METHOD OF ACCURATE CHINESE SOUNDEX BASED ON FINE-GRAINED MAPPING - [MIN LI*, Sara Noeman, Yunyao Li, Marina Danilevsky]\r\n', 7, 'Egypt', 'Egypt', 'Education', 'CIH', 'the status is not clear yet', 2016, 20),
-(43, '', 'March', '', '', '', '', '', '', 2, '', '', '', '', '', 2017, 23),
-(45, '', 'April', '', '', '', '', '', '', 2, '', '', '', '', '', 2017, 24),
-(46, '', 'December', '', '', '', '', '', '', 2, '', '', '', '', '', 2016, 34),
-(47, '', 'October', '', '', '', '', '', '', 2, '', '', '', '', '', 2016, 20),
-(48, '', 'November', '', '', '', '', '', '', 2, '', '', '', '', '', 2016, 78),
-(49, '', 'February', '', '', '', '', '', '', 7, '', '', '', '', '', 2016, 70),
-(50, '', 'March', '', '', '', '', '', '', 7, '', '', '', '', '', 2016, 99),
-(51, '', 'April', '', '', '', '', '', '', 7, '', '', '', '', '', 2016, 30);
+CREATE TABLE `client` (
+  `CID` int(10) NOT NULL,
+  `name` varchar(10) NOT NULL,
+  `country` varchar(10) NOT NULL,
+  `industry` varchar(10) NOT NULL,
+  `CIH` varchar(10) NOT NULL,
+  `Reference link` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_achievement`
+--
+
+CREATE TABLE `client_achievement` (
+  `CID` int(10) NOT NULL,
+  `AchID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -95,34 +94,33 @@ INSERT INTO `department` (`Dno`, `Name`) VALUES
 
 CREATE TABLE `employee` (
   `EID` int(10) NOT NULL,
+  `name` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
   `country` varchar(10) NOT NULL,
   `certificate` text NOT NULL,
   `password` int(20) NOT NULL,
   `DNO` int(10) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `approved` varchar(50) DEFAULT NULL,
-  `Ejobtitle` varchar(100) DEFAULT NULL,
-  `Eimg` blob,
-  `lastname` varchar(50) DEFAULT NULL,
-  `firstname` varchar(50) DEFAULT NULL,
-  `rank` int(11) DEFAULT NULL,
-  `gender` char(1) DEFAULT NULL,
-  `NewDno` int(11) DEFAULT NULL,
-  `joinDate` date DEFAULT NULL,
-  `department` varchar(50) DEFAULT NULL
+  `approved` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`EID`, `email`, `country`, `certificate`, `password`, `DNO`, `username`, `approved`, `Ejobtitle`, `Eimg`, `lastname`, `firstname`, `rank`, `gender`, `NewDno`, `joinDate`, `department`) VALUES
-(1, 'reham.abdallatef47@gmail.com', 'egypt', 'student', 123, 1, 'reham_abdallatef', 'approved', NULL, NULL, 'Abdallatef', 'Reham', NULL, NULL, NULL, '2017-04-11', 'mydeptname'),
-(2, 'emp1@gmail.com', 'Egypt', 'Computerce', 123, 1, 'emp1_emp1', 'approved', 'Software engineer.', NULL, 'Hasanien', 'saraaaaaaa', 30, '1', NULL, NULL, 'CMP'),
-(4, 'emp3@gmail.com', 'egypt', 'SW engineer', 123, 2, 'emp3_emp3', 'approved', NULL, NULL, 'eisa', 'lina', NULL, NULL, NULL, NULL, NULL),
-(5, 'emp4@gmail.com', 'egypt', '', 123, 3, 'emp4_emp4', 'approved', NULL, NULL, 'abdallatef', 'riad', NULL, NULL, NULL, NULL, NULL),
-(7, 'emp6@gmail.com', 'egypt', '', 123, 3, 'emp6_emp6', 'approved', NULL, NULL, 'gira', 'reem', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` (`EID`, `name`, `email`, `country`, `certificate`, `password`, `DNO`, `username`, `approved`) VALUES
+(1, 'reham', 'reham.abdallatef47@gmail.com', 'egypt', 'student', 123, 1, 'reham_abdallatef', 'approved'),
+(2, 'emp001', 'emp1@gmail.com', 'egypt', '', 19961996, 1, 'emp1_emp1', NULL),
+(3, 'emp002', 'emp2@gmail.com', 'egypt', '', 19961996, 1, 'emp2_emp2', NULL),
+(4, 'emp003', 'emp3@gmail.com', 'egypt', '', 19961996, 2, 'emp3_emp3', NULL),
+(5, 'emp004', 'emp4@gmail.com', 'egypt', '', 19961996, 3, 'emp4_emp4', NULL),
+(6, 'emp005', 'emp5@gmail.com', 'egypt', '', 19961996, 2, 'emp5_emp5', NULL),
+(7, 'emp006', 'emp6@gmail.com', 'egypt', '', 19961996, 3, 'emp6_emp6', NULL),
+(8, 'emp007', 'emp7@gmail.com', 'egypt', '', 19961996, 2, 'emp7_emp7', NULL),
+(9, 'emp008', 'emp8@gmail.com', 'egypt', '', 19961996, 1, 'emp8_emp8', NULL),
+(10, 'manager1', 'manager1@gmail.com', 'egypt', '', 19961996, 1, 'manager1', 'approved'),
+(11, 'manager2', 'manager2@gmail.com', 'egypt', '', 19961996, 2, 'manager2', 'approved'),
+(12, 'manager3', 'manager3@gmail.com', 'egypt', '', 19961996, 3, 'manager3', 'approved');
 
 -- --------------------------------------------------------
 
@@ -132,52 +130,23 @@ INSERT INTO `employee` (`EID`, `email`, `country`, `certificate`, `password`, `D
 
 CREATE TABLE `manager` (
   `MID` int(10) NOT NULL,
-  `firstname` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
   `country` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
   `DNO` int(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `type` int(11) DEFAULT NULL,
-  `Mjobtitle` varchar(100) DEFAULT NULL,
-  `Mimg` blob,
-  `lastname` varchar(50) DEFAULT NULL,
-  `gender` varchar(11) DEFAULT NULL,
-  `certificate` varchar(200) DEFAULT NULL,
-  `joinDate` date DEFAULT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `department` varchar(40) DEFAULT NULL
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `manager`
 --
 
-INSERT INTO `manager` (`MID`, `firstname`, `country`, `password`, `DNO`, `email`, `type`, `Mjobtitle`, `Mimg`, `lastname`, `gender`, `certificate`, `joinDate`, `username`, `department`) VALUES
-(1, 'Reham', 'egypt', '123', 1, 'manager3@gmail.com', 1, 'SW engineer', NULL, 'Abdelatif', '1', 'CMP', '2017-04-08', NULL, NULL),
-(10, 'Sara Mohamedd', 'egypt', '12', 1, 'manager1@gmail.com', 2, 'sw engineer', NULL, 'Hasanien', '0', 'CMP', NULL, NULL, NULL),
-(11, 'Reem', 'egypt', '12', 2, 'manager2@gmail.com', 2, 'SW engineer', NULL, 'Gira', NULL, 'CMP', NULL, NULL, NULL),
-(12, 'Mohamed ', 'egypt', '123', 3, 'manager8@gmail.com', 2, NULL, NULL, 'Mohie', 'male', 'cmp', NULL, 'ma', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `note`
---
-
-CREATE TABLE `note` (
-  `NID` int(50) NOT NULL,
-  `text` varchar(100) NOT NULL,
-  `AchID` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `note`
---
-
-INSERT INTO `note` (`NID`, `text`, `AchID`) VALUES
-(1, 'jjjjjjjjjjjj', 14),
-(2, 'good', 40),
-(3, 'k;lk;k', 39);
+INSERT INTO `manager` (`MID`, `name`, `country`, `password`, `username`, `DNO`, `email`) VALUES
+(1, 'reham', 'egypt', '123', 'reham_abdallatef', 1, ''),
+(10, 'manager1', 'egypt', '19961996', 'manager1', 1, 'manager1@gmail.com'),
+(11, 'manager2', 'egypt', '19961996', 'manager2', 2, 'manager2@gmail.com'),
+(12, 'manager3', 'egypt', '19961996', 'manager3', 3, 'manager3@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -192,15 +161,6 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `post`
---
-
-INSERT INTO `post` (`PID`, `Text`, `MID`) VALUES
-(201, 'sasaa', 10),
-(215, 'dfjksdjsd', 10),
-(216, 'hdjhdfhfhhfu', 10);
-
---
 -- Indexes for dumped tables
 --
 
@@ -210,6 +170,19 @@ INSERT INTO `post` (`PID`, `Text`, `MID`) VALUES
 ALTER TABLE `achievement`
   ADD PRIMARY KEY (`AchID`),
   ADD KEY `EID` (`EID`);
+
+--
+-- Indexes for table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`CID`);
+
+--
+-- Indexes for table `client_achievement`
+--
+ALTER TABLE `client_achievement`
+  ADD KEY `CID` (`CID`),
+  ADD KEY `AchID` (`AchID`);
 
 --
 -- Indexes for table `department`
@@ -222,22 +195,14 @@ ALTER TABLE `department`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`EID`,`username`),
-  ADD KEY `DNO` (`DNO`),
-  ADD KEY `NewDno` (`NewDno`);
+  ADD KEY `DNO` (`DNO`);
 
 --
 -- Indexes for table `manager`
 --
 ALTER TABLE `manager`
-  ADD PRIMARY KEY (`MID`),
+  ADD PRIMARY KEY (`MID`,`username`),
   ADD KEY `DNO` (`DNO`);
-
---
--- Indexes for table `note`
---
-ALTER TABLE `note`
-  ADD PRIMARY KEY (`NID`),
-  ADD KEY `AchID` (`AchID`);
 
 --
 -- Indexes for table `post`
@@ -254,7 +219,12 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `achievement`
 --
 ALTER TABLE `achievement`
-  MODIFY `AchID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `AchID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `client`
+--
+ALTER TABLE `client`
+  MODIFY `CID` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `department`
 --
@@ -264,22 +234,12 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `EID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `EID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `manager`
 --
 ALTER TABLE `manager`
   MODIFY `MID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `note`
---
-ALTER TABLE `note`
-  MODIFY `NID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `post`
---
-ALTER TABLE `post`
-  MODIFY `PID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
 --
 -- Constraints for dumped tables
 --
@@ -291,23 +251,23 @@ ALTER TABLE `achievement`
   ADD CONSTRAINT `achievement_ibfk_1` FOREIGN KEY (`EID`) REFERENCES `employee` (`EID`);
 
 --
+-- Constraints for table `client_achievement`
+--
+ALTER TABLE `client_achievement`
+  ADD CONSTRAINT `client_achievement_ibfk_1` FOREIGN KEY (`AchID`) REFERENCES `achievement` (`AchID`),
+  ADD CONSTRAINT `client_achievement_ibfk_2` FOREIGN KEY (`CID`) REFERENCES `client` (`CID`);
+
+--
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
-  ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`DNO`) REFERENCES `department` (`Dno`),
-  ADD CONSTRAINT `employee_ibfk_4` FOREIGN KEY (`NewDno`) REFERENCES `department` (`Dno`);
+  ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`DNO`) REFERENCES `department` (`Dno`);
 
 --
 -- Constraints for table `manager`
 --
 ALTER TABLE `manager`
   ADD CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`DNO`) REFERENCES `department` (`Dno`);
-
---
--- Constraints for table `note`
---
-ALTER TABLE `note`
-  ADD CONSTRAINT `note_ibfk_2` FOREIGN KEY (`AchID`) REFERENCES `achievement` (`AchID`);
 
 --
 -- Constraints for table `post`
