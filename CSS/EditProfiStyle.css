@@ -1,0 +1,82 @@
+*
+{
+    font-family: sans-serif;
+}
+body
+{  font-size: large;
+//overflow-x: hidden;
+//background-image: url("pBackGround.jpg");
+//background-size: cover;
+}
+.container
+{
+    margin: auto;
+    margin-top: 150px;
+}
+.navbar
+{
+    background-color: WindowFrame;
+    width: 63%;
+    font-size: large;
+    position: relative;
+    left: 9%;
+}
+li
+{
+    display: inline;
+    float: left;
+}
+li a
+{
+    display: inline;
+    color: #323232;
+    text-align: center;
+    text-decoration: none;
+}
+li.selected a
+{
+    color: #3b6caa;
+}
+
+li a:hover {
+    color: #3b6caa;
+}
+
+.main
+{
+    border: solid;
+    border-color: Window;
+    height: 800px;
+    position: relative;
+    top: -20px;
+    padding-top: 20px;
+//size: 900px;
+}
+
+.col-md-8
+{
+    font-size: 120%;
+    position: absolute;
+    left: 10%;
+}
+
+#myImage
+{
+    width:270px ;
+    height:auto;
+    padding:2px;
+    border:1px solid window;
+    background-color:white;
+
+    position:relative;
+    top: 30px;
+    display: inline;
+    left: -40px;
+}
+
+.userInfo
+{
+    position: relative;
+    top: 40px;
+    left: -30px;
+}

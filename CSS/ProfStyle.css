@@ -14,11 +14,14 @@ body
     margin: auto;
     margin-top: 150px;
 }
+
 .navbar
 {
     background-color: WindowFrame;
-    width: 430px;
+    width: 50%;
     font-size: large;
+    position: relative;
+    left: 3%;
 }
 
 li
@@ -47,7 +50,7 @@ li a:hover {
 {
     border: solid;
     border-color: Window;
-    height: 800px;
+    height: 320px;
     position: relative;
     top: -20px;
     //size: 900px;
@@ -114,4 +117,14 @@ li a:hover {
     color:#323232;
     padding-left: 1%;
 }
+.chartContainer1
+{
+  width: 50%;
+  margin: 15px auto;
 
+}
+.chartContainer2
+{
+    width:50%;
+    margin: 15px auto;
+}

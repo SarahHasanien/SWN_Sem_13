@@ -6,13 +6,14 @@
 	//two buttons will be beside each request or under the request,one button to approve the new request(account) and the other button to disapprove the account and delete this request
 	//also there will be check boxes so that CEO or managers can approve or disapprove many requests at a time
 	//when CEO or manager approve or disapprove using the button ,the page will be reloaded automatically,also when CEO or manager use check boxes to approve or disapprove then click on a button approve or disapprove (el button da hytla3 2wl ma el CEO 2w el manager ydoso 3la wa7da bs 7tta mn el check boxes,wel button da hytla3 f 4reta beda httla3 f 2a5er el saf7a ,el4reta de htfdal mawgoda m3 el user t7t f 2a5er el 4a4a mhma el user ytla3 2ww ynzel"mahma el user y slide up 2w down,el 4reta de htb2a mawgoda t7t 3la tol w feha el two buttons elly 2olt 3lihom mn 4oya[button ll approve wel tany ll disapprove]")
-
-	$con=mysqli_connect("localhost","root",'',"sw");
+    require("Common.php");
+    $db=Database::Connect();  
+	/*$con=mysqli_connect("localhost","root",'',"sw");
 	// Check connection
 	if (mysqli_connect_errno())
 	  {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	  }
+	  }*/
 	$inc=0;
 ?>
 <!DOCTYPE html>
@@ -31,7 +32,7 @@
 
 		<!-- my style for this page -->
 		<link rel="stylesheet" href="CSS/nav-CEO.css">
-		<link rel="stylesheet" href="CSS/footer.css">
+		<link rel="stylesheet" href="CSS/foter.css">
 		<link rel="stylesheet" href="CSS/requests.css">
 
 		<title>Joining requests</title>
@@ -56,8 +57,8 @@
       </div>
       <div id="navbar3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">My Profile</a></li>
+          <li><a href="Home.php">Home</a></li>
+          <li><a href="ProfileFront.php">My Profile</a></li>
           <li style="background:#fff;border-bottom:2px solid #192b75"><a href="#">Joining requests &nbsp;&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>
           <li><a href="#">Export achievements</a></li>
           <li class="dropdown">
@@ -65,6 +66,7 @@
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">Employees</a></li>
               <li><a href="#">Departments</a></li>
+              <li><a href="logout.php">Log out</a></li>
               <!--<li class="divider"></li>-->
               <li class="dropdown-header"></li>
               
@@ -91,17 +93,17 @@
 		<?php 
 
 		$q="SELECT * FROM employee WHERE approved IS NULL";
-		$result=$con->query($q);
+		$result=$db->conn->query($q);
 		while($row = $result->fetch_assoc())
 		{
-			$name=$row["name"];
+			$name=$row["firstname"];
 			$Dno=$row["DNO"];
 			$EID=$row["EID"];
 			$email=$row["email"];
 			$Country=$row["country"];
 			$certificate=$row["certificate"];
 			$q1="SELECT Name FROM `department` WHERE Dno='$Dno'";
-			$result1=$con->query($q1);
+			$result1=$db->conn->query($q1);
 			$row1=$result1->fetch_assoc();
 			//panel body in the following div
 			?>
@@ -137,9 +139,7 @@
 			<div class="container1">
 			  <div class="well well-lg" style="text-align:center;font-size: 30px;">There are no requests now. <br>Check later if there are new requests to approve.</div>
 			</div>
-
 			<?php
-
 		}
 		?>
 		 

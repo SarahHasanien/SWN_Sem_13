@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 require "Common.php";
-//include 'Conn.php'
 ?>
 <html lang="en">
     <head>
@@ -58,7 +57,16 @@ require "Common.php";
 <div class="form-group">
 <input class="form-control" placeholder="Password" name="password" type="password" value="">
 </div>  
-<div class="rem"><input type="checkbox" name="remebre">&nbsp;Remeber Me</div><br>
+    <?php 
+     $reasons = array("password" => "Wrong username or password", "blank" => "You have left one or more fields blank."); 
+     if (isset($_GET["loginFailed"])) 
+         //echo $reasons[$_GET["reason"]]; 
+            echo '<div class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Wrong username or password
+        </div>';
+     ?>
 <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" name="login">
 
 </fieldset>

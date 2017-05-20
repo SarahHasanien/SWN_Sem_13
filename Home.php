@@ -3,9 +3,9 @@ require "Common.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="UTF-8">
-        <title> Home Page </title>
+        <title> Home</title>
         <link rel="stylesheet" href="css/Home.css">
         <link rel="icon" href="images/rsz_achive.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,21 +40,40 @@ require "Common.php";
       </div>
       <div id="navbar3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="ProfileFront.php">My Profile</a></li>
+          <li ><a href="Home.php">Home</a></li>
+<?php if(! empty($_SESSION['user2'])){  ?>
+         <li ><a href="AddAchievement.php">Add Achievement</a></li>
+            <?php } ?>     
+            <li><a href="ProfileFront.php">My Profile</a></li>
+              <li ><a href="viewAchievement.php">View Achievement</a></li>
             <?php
                 if (empty($_SESSION['user2']))
                 {
-                    echo'<li><a href="#">Joining requests &nbsp;&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>';
+                    if ($_SESSION['user']['type']==1)
+                        {
+                            echo'<li><a href="requests.php">Joining requests &nbsp;&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>';
+                        }
+                        else if ($_SESSION['user']['type']==2)
+                        {
+                            echo'<li><a href="requestsManagers.php">Joining requests &nbsp;&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>';
+                        }
                 }
             ?>
-          
-          <li><a href="#">Export achievements</a></li>
+          <li><a href="ExportAch.php">Export achievements</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Employees</a></li>
-              <li><a href="#">Departments</a></li>
+                <?php if(! empty($_SESSION['user2'])){  ?>
+           <li><a href="MyAchievement.php">My Achievement</a></li>
+                            <?php } ?> 
+                
+                 <?php if(! empty($_SESSION['user'])){ 
+                
+               if($_SESSION['user']['type'] == 2){  ?>
+           <li><a href="department.php">Department Achievement</a></li>
+                            <?php } }?> 
+              <li><a href="EmpAch.php">Employees</a></li>
+              <li><a href="DeptsAch.php">Departments</a></li>
               <li><a href="logout.php">Log out</a></li>
               <!--<li class="divider"></li>-->
               <li class="dropdown-header"></li>
