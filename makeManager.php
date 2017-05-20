@@ -33,10 +33,7 @@
 	$result3=$con->query($q3);
 	$row3=$result3->fetch_assoc();
 
-	$q4="DELETE FROM employee WHERE EID=".$i;
-	//UPDATE table_name SET column1=value, column2=value2,... WHERE some_column=some_value
-	$result4=$con->query($q4);
-	$row4=$result4->fetch_assoc();
+	
 
 
 	
