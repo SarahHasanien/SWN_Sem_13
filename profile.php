@@ -36,9 +36,9 @@
 <nav class="c navbar navbar-static-top" role="navigation">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="active selected"><a href="ProfileFront.php"> Profile </a></li>
-            <li> <a href="EditProfileFront.php">Edit Profile </a></li>
-            <li> <a href="Home.php">Home </a></li>
+        <li> <a href="Home.php">Home </a></li>
+            <li><a href="ProfileFront.php">My Profile </a></li>
+            <li> <a href="view_emp.php">Employees list </a></li>
             <li> <a href="logout.php">Logout </a></li>
             <!-- <li><a href="Employee's Achievements"> My Achievements</a> </li> -->
         </ul>

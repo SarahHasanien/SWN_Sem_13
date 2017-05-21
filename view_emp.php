@@ -49,15 +49,42 @@
       </div>
       <div id="navbar3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="Home.php">Home</a></li>
-          <li><a href="ProfileFront.php">My Profile</a></li>
-          <li><a href="#">Joining requests &nbsp;&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>
-          <li><a href="#">Export achievements</a></li>
+          <li ><a href="Home.php">Home</a></li>
+<?php if(! empty($_SESSION['user2'])){  ?>
+         <li ><a href="AddAchievement.php">Add Achievement</a></li>
+            <?php } ?>     
+            <li><a href="ProfileFront.php">My Profile</a></li>
+              <li ><a href="viewAchievement.php">View Achievement</a></li>
+            <?php
+                if (empty($_SESSION['user2']))
+                {
+                    if ($_SESSION['user']['type']==1)
+                        {
+                            echo'<li><a href="requests.php">Joining requests &nbsp;&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>';
+                        }
+                        else if ($_SESSION['user']['type']==2)
+                        {
+                            echo'<li><a href="requestsManagers.php">Joining requests &nbsp;&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>';
+                        }
+                }
+            ?>
+          <li><a href="ExportAch.php">Export achievements</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Employees</a></li>
-              <li><a href="#">Departments</a></li>
+                <?php if(! empty($_SESSION['user2'])){  ?>
+           <li><a href="MyAchievement.php">My Achievement</a></li>
+                            <?php } ?> 
+                
+                 <?php if(! empty($_SESSION['user'])){ 
+                
+               if($_SESSION['user']['type'] == 2){  ?>
+           <li><a href="department.php">Department Achievement</a></li>
+                            <?php } }?> 
+              <li><a href="view_emp.php">Employees</a></li>
+              <li><a href="EmpAch.php">Employees Achievement</a></li>
+              <li><a href="DeptsAch.php">Departments</a></li>
+              <li><a href="logout.php">Log out</a></li>
               <!--<li class="divider"></li>-->
               <li class="dropdown-header"></li>
               
@@ -101,6 +128,29 @@
 
       
     <?php
+    if (!empty($_SESSION['user2']))
+      {
+        if($_SESSION['user2']['EID'] != $EID)
+        //employee then only one button will appear
+        {if(is_null($image))
+        {
+          $image="images/black-white-android-user.png";
+        }
+      echo '<div class="box box6 shadow9">';
+      echo '<img src="data:image/jpeg;base64,'.base64_encode( $image ).'" class="box">';
+
+
+        echo "<p><strong>".'Name: '."</strong>" . $Fname .' ' .$Lname;
+        echo '<br>';
+      echo nl2br("\n"). "<strong>" . 'Department: ' ."</strong>" . $row1["Name"]; 
+      echo '<br>';
+      echo nl2br("\n"). "<strong>" . 'Job Title: ' ."</strong>". $job; 
+      echo '<br>';
+      echo nl2br("\n"). "<strong>" . 'Country: ' ."</strong>". $Country;
+      echo '<br>';
+      echo '<br>';}
+      }
+      else{
 	    	if(is_null($image))
 	    	{
 	    		$image="images/black-white-android-user.png";
@@ -118,11 +168,12 @@
 			echo nl2br("\n"). "<strong>" . 'Country: ' ."</strong>". $Country;
 			echo '<br>';
 			echo '<br>';
-
+      }
       if (!empty($_SESSION['user2']))
       {
+        if($_SESSION['user2']['EID'] != $EID)
         //employee then only one button will appear
-        echo '<button class="btn btn-primary btn-sx btn2" type="submit"><a style="text-decoration: none;color:white;" href="profile.php?num='.$EID.'"><b>View profile </b></a><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button>';
+        {echo '<button class="btn btn-primary btn-sx btn2" type="submit"><a style="text-decoration: none;color:white;" href="profile.php?num='.$EID.'"><b>View profile </b></a><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button>';}
       }
       else if(!empty($_SESSION['user']))
       {

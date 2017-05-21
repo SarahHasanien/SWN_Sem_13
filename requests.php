@@ -60,12 +60,13 @@
           <li><a href="Home.php">Home</a></li>
           <li><a href="ProfileFront.php">My Profile</a></li>
           <li style="background:#fff;border-bottom:2px solid #192b75"><a href="#">Joining requests &nbsp;&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>
-          <li><a href="#">Export achievements</a></li>
+          <li><a href="ExportAch.php">Export achievements</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Employees</a></li>
-              <li><a href="#">Departments</a></li>
+              <li><a href="view_emp.php">Employees</a></li>
+              <li><a href="EmpAch.php">Employees Achievement</a></li>
+              <li><a href="DeptsAch.php">Departments</a></li>
               <li><a href="logout.php">Log out</a></li>
               <!--<li class="divider"></li>-->
               <li class="dropdown-header"></li>
