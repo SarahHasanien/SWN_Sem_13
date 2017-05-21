@@ -62,8 +62,9 @@ require "Common.php";
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
            <li><a href="MyAchievement.php">My Achievement</a></li>
-              <li><a href="#">Employees</a></li>
-              <li><a href="#">Departments</a></li>
+              <li><a href="view_emp.php">Employees</a></li>
+              <li><a href="EmpAch.php">Employees Achievement</a></li>
+              <li><a href="DeptsAch.php">Departments</a></li>
               <li><a href="logout.php">Log out</a></li>
               <!--<li class="divider"></li>-->
               <li class="dropdown-header"></li>
